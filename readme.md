@@ -41,6 +41,12 @@ Con genéricos:
 
 Comprueba que funciona correctamente haciendo uso de `test_lista_libros.pas`.
 
+**Aviso**: el método `getFirst` pasa a declararse como un `procedure` con esta firma:
+
+```pascal
+procedure getFirst(lst: tLista; var x: TLibro);
+```
+
 
 **Pregunta:** ¿Cambió la LÓGICA de la lista o solo los TIPOS?
 
