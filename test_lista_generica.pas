@@ -1,33 +1,11 @@
 program test_lista_generica;
 
-{
-  TEST PASO 3: LISTA GENÉRICA CON TELEMENT
-  
-  Esta es la VERSIÓN GENÉRICA DE VERDAD.
-  
-  COMPARACIÓN CON VERSIÓN ANTERIOR:
-  - uListaLibrosModificada.pas: tnodo.info es TLibro
-  - uListaGenérica.pas: tnodo.info es TElement
-  
-  CONSECUENCIA:
-  - uListaLibrosModificada es específica para libros
-  - uListaGenérica funciona con CUALQUIER tipo
-  
-  ¿CÓMO ES ESTO POSIBLE?
-  Porque TElement es lo que pongamos en uTElement.pas
-  Actualmente contiene un TLibro, pero podría contener cualquier cosa.
-  
-  EJERCICIO FUTURO:
-  Modifica uTElement.pas para contener un entero.
-  Luego recompila esta prueba.
-  ¡La lista genérica seguirá funcionando!
-}
-
 uses sysutils, uListaGenerica, uTElement, uTLibro;
 
 var
     lista: tLista;
     elem1, elem2, elem3: TElement;
+    primerElem: TElement;
 
 begin
     writeln(#13#10'====== PRUEBA: LISTA GENÉRICA ======');
@@ -64,11 +42,10 @@ begin
     writeln(uListaGenerica.toString(lista));
     
     writeln('Tamaño: ' + IntToStr(size(lista)));
+    getFirst(lista, primerElem);
+    writeln('Primer elemento: ' + uTElement.toString(primerElem));
     writeln('');
     writeln('✓ La lista genérica almacena TElement.');
-    writeln('✓ TElement contiene TLibro.');
-    writeln('✓ Si cambias TElement en uTElement.pas, la lista se adapta.');
-    writeln('✓ ¡Eso es genericidad!');
     
     clear(lista);
     readln;

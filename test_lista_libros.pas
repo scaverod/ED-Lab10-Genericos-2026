@@ -1,11 +1,12 @@
-program test_lista_libros_modificada;
+program test_lista_libros;
 
 
-uses sysutils, uListaLibrosModificada, uTLibro;
+uses sysutils, uListaLibros, uTLibro;
 
 var
     lista: tLista;
     lib1, lib2, lib3: TLibro;
+  primerLibro: TLibro;
 
 begin
     writeln(#13#10'====== PRUEBA: LISTA DE LIBROS (MODIFICADA) ======');
@@ -36,10 +37,11 @@ begin
     
     writeln('');
     writeln('Estado de la lista:');
-    writeln(uListaLibrosModificada.toString(lista));
+    writeln(uListaLibros.toString(lista));
     
     writeln('Tamaño: ' + IntToStr(size(lista)));
-    writeln('Primer elemento: ' + uTLibro.toString(getFirst(lista)));
+    getFirst(lista, primerLibro);
+    writeln('Primer elemento: ' + uTLibro.toString(primerLibro));
     
     clear(lista);
     writeln('');
